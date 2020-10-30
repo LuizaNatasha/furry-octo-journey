@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Anunciar</title>
+    <link rel="stylesheet" type="text/css" href="./css/anunciar.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <style>
+        .image-preview {
+            width: 300px;
+            min-height: 100px;
+            border: 2px solid #ffff;
+            margin-top: 15px;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            color: #ffff;
+        }
+
+        .image-preview__image {
+            display: none;
+            width: 100%;
+        }
+    </style>
+    <link href="https://fonts.googleapis.com/css?family=Poppins:600&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/a81368914c.js"></script>
+</head>
+
+<body id="fundo">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-light">
+        <div class="container">
+            <img src="fotos/5.png" class="img-fluid" alt="Imagem responsiva" width="80" height="60">
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav mr-auto">
+                    <form action="/home" method="GET">
+                        <button class="btn btn-light mr-2" type="submit">Home</button>
+                    </form>
+                    <form action="/comprar" method="GET">
+                        <button class="btn btn-light mr-2" type="submit">Comprar</button>
+                    </form>
+                    <form action="/alugar" method="GET">
+                        <button class="btn btn-light mr-2" type="submit">Alugar</button>
+                    </form>
+                    <form action="/anunciar" method="GET">
+                        <button class="btn btn-light mr-2" type="submit">Anunciar imovéis</button>
+                    </form>
+
+                    <li class="nav-item active">
+                        <a class="nav-link" href="#"> </a>
+                    </li>
+                </ul>
+                <div class="dropdown mr-4">
+                    <button class="btn dropdown" type="button" id="dropdownMenuButton" data-toggle="dropdown"
+                        aria-haspopup="true" aria-expanded="false">
+                        <span class="fas fa-user-circle" id="bonequinho"></span>
+                    </button>
+                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                        <form action="/perfil" method="GET">
+                            <button class="btn" type="submit">
+                                <span class="fas fa-user"></span>
+                                <span class="title">Meu Perfil</span>
+                            </button>
+                        </form>
+                        <form action="/perfil" method="GET">
+                            <button class="btn" type="submit">
+                                <span class="fas fa-question-circle"></span>
+                                <span class="title">Ajuda</span>
+                            </button>
+                        </form>
+                        <div class="dropdown-divider"></div>
+                        <form action="/" method="GET">
+                            <button class="btn" type="submit">
+                                <span class="fas fa-sign-out-alt"></span>
+                                <span class="title">Sair</span>
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container" id="cont2">
+        <div>
+            <form action="/cadastro-anuncio" method="POST">
+                <input type="hidden" value="<%= id_usuario %>" name="idUsuario">
+                <div class="input-div one">
+                    <div>
+                        <h3>Seu imóvel é?</h3>
+                        <select name = 'tipo_imovel'class="form-control" id="exampleFormControlSelect1">
+                            <option value='Apartamento'>Apartamento</option>
+                            <option value='Kitnet'>Kitnet</option>
+                            <option value="Casa">Casa</option>
+                            <option value="Chácara">Chácara</option>
+                            <option value="Flat">Flat</option>
+                        </select>
+                    </div>
+                </div>
+                <input type="hidden" value="Vendo" name='tipo_anuncio'>
+                <div class="form-check" id="caixinha">
+                    <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="opcao1"
+                        checked>
+                    <label class="form-check-label" for="exampleRadios1">
+                        Vendo
+                    </label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios2"
+                        value="opcao2">
+                    <label class="form-check-label" for="exampleRadios2">
+                        Alugo
+                    </label>
+                </div>
+
+                <h3>Onde fica seu imóvel?</h3>
+                <div class="form-row align-items-center">
+                    <div class="form-group col-md-6">
+                        <label for="inputCEP">CEP</label>
+                        <input type="text" name='cep' class="form-control" id="inputCEP">
+                    </div>
+                    <div class="form-group col-md-6">
+                        <a href="http://www.buscacep.correios.com.br/sistemas/buscacep/" id="coco">* Não sei meu CEP
+                        </a>
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group col-md-9">
+                        <label for="inputCity">Cidade</label>
+                        <input name='cidade' type="text" class="form-control" id="inputCity">
+                    </div>
+                    <div class="form-group col-md-3">
+                        <label for="inputEstado">Estado</label>
+                        <select name='estadoUF' id="inputEstado" class="form-control">
+                            <option value='AM' selected>AM</option>
+                            <option>...</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group col-md-6">
+                        <label for="inputAddress">Bairro</label>
+                        <input name='bairro' type="text" class="form-control" id="inputAddress" placeholder="">
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label for="inputAddress">Endereço</label>
+                        <input name='endereco' type="text" class="form-control" id="inputAddress"
+                            placeholder="Rua dos Bobos">
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group col-md-3">
+                        <label for="inputAddress2">Numero</label>
+                        <input name='numero' type="text" class="form-control" id="inputAddress2" placeholder="nº 0">
+                    </div>
+                    <div class="form-group col-md-9">
+                        <label for="inputAddress">Complemento</label>
+                        <input name='complemento' type="text" class="form-control" id="inputAddress"
+                            placeholder="Rua dos Bobos">
+                    </div>
+                </div>
+                <div class="form-title form-title" id="textoo">
+                    <h3 class="form-title__text">Adicionar Foto</h3>
+                </div>
+                <input type="file" name="inpFile" id="inpFile">
+                <div class="image-preview" id="imagePreview">
+                    <img src="" alt="Image Preview" class="image-preview__image">
+                    <span class="image-preview__default-text">Imagem</span>
+
+                </div>
+        </div>
+        <div>
+            <div class="form-title form-title">
+                <!---->
+                <h3 class="form-title__text">Dados principais do imóvel
+                    <!---->
+                </h3>
+            </div>
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    <label for="inputQuarto">Quartos</label>
+                    <input name='quartos' type="number" class="form-control" id="inputQuarto">
+                </div>
+                <div class="form-group col-md-6">
+                    <label for="inputBanheiro">Banheiros</label>
+                    <input name='banheiros' type="number" class="form-control" id="inputBanheiro">
+                </div>
+
+            </div>
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    <label for="inputArea">Área (m²)</label>
+                    <input name='arem2' type="number" class="form-control" id="inputArea">
+
+                </div>
+                <div class="form-group col-md-6">
+                    <label for="inputVaga">Vagas</label>
+                    <input name='vagas' type="number" class="form-control" id="inputVaga">
+                </div>
+
+            </div>
+
+            <label for="inputArea">Descrição</label>
+            <textarea name='descricao' class="form-control" aria-label="Com textarea"></textarea>
+
+            <div class="form-title form-title" id="textoo">
+                <!---->
+                <h3 class="form-title__text">Quanto custa seu imóvel?
+                    <!---->
+                </h3>
+            </div>
+            <label for="inputPreco">Valor da venda/Aluguel</label>
+            <div class="input-group mb-3">
+                <input value='0' name='valor' type="text" class="form-control" aria-label="Quantia">
+                <div class="input-group-append">
+                    <span class="input-group-text">,00</span>
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group col-md-9">
+                    <label for="inputIptu">IPTU (R$/ano)</label>
+                    <div class="input-group mb-3">
+                        <input value='0' name='iptu' type="text" class="form-control" aria-label="Quantia">
+                        <div class="input-group-append">
+                            <span class="input-group-text">,00</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-auto my-1" id="texto2">
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" id="autoSizingCheck2">
+                        <label class="form-check-label" for="autoSizingCheck2">
+                            Isento
+                        </label>
+                    </div>
+                </div>
+
+            </div>
+            <button type="submit" class="btn btn-dark btn-block">Anunciar</button>
+
+        </div>
+        </form>
+    </div>
+    <script>
+        const inpFile = document.getElementById("inpFile");
+        const previewContainer = document.getElementById("imagePreview");
+        const previewImage = previewContainer.querySelector(".image-preview__image")
+        const previewDefaultText = previewContainer.querySelector(".image-preview__default-text");
+
+        inpFile.addEventListener("change", function () {
+            const file = this.files[0];
+
+            if (file) {
+                const reader = new FileReader();
+
+                previewDefaultText.style.display = "none";
+                previewImage.style.display = "block";
+
+                reader.addEventListener("load", function () {
+
+                    previewImage.setAttribute("src", this.result);
+
+                });
+                reader.readAsDataURL(file);
+
+            } else {
+
+                previewDefaultText.style.display = "null";
+                previewImage.style.display = "null";
+                previewImage.setAttribute("src", "");
+            }
+
+        });
+    </script>
+
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>

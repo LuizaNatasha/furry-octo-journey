@@ -1,0 +1,22 @@
+#fundo{
+    background-color: #363536; 
+}
+#dropdownMenuButton{  
+    box-shadow: none;  
+    height: 50px;
+    width: 50px;
+    background-color: transparent;
+    border-style: solid;
+    border-radius: 50%;
+}
+#bonequinho{
+    font-size: 40px;
+    
+}
+.btn{
+    background-color:#fff;
+    font-family: 'Poppins', sans-serif;
+}
+#ttl{
+    box-shadow: none; 
+}

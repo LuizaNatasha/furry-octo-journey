@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Comprar</title>
+    <link rel="stylesheet" type="text/css" href="./css/comprar.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=Poppins:600&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/a81368914c.js"></script>
+</head>
+<body id="fundo">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-light">
+
+        <div class="container">
+
+          <img src="fotos/5.png" class="img-fluid" alt="Imagem responsiva" width="80" height="60">
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarSupportedContent" >
+              <ul class="navbar-nav mr-auto">
+                <form action="/home" method="GET">
+                    <button class="btn btn-light mr-2" type="submit">Home</button> 
+                </form>
+                <form action="/comprar" method="GET">
+                    <button class="btn btn-light mr-2" type="submit">Comprar</button> 
+                </form>
+                <form action="/alugar" method="GET">
+                    <button class="btn btn-light mr-2" type="submit">Alugar</button> 
+                </form>
+                <form action="/anunciar" method="GET">
+                    <button class="btn btn-light mr-2" type="submit">Anunciar imovéis</button> 
+                </form>
+                
+                <li class="nav-item active">
+                    <a class="nav-link" href="#">       </a>
+                  </li>
+                </ul>
+                <div class="dropdown mr-4" id="dropdown">
+                    <button class="btn dropdown" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <span class="fas fa-user-circle" id="bonequinho"></span>
+                    </button>
+                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                        <form action="/perfil" method="GET">
+                            <button class="btn" type="submit" id="ttl">
+                                <span class="fas fa-user"></span>
+                                <span class="title">Meu Perfil</span>
+                            </button>
+                        </form>
+                        <form action="/perfil" method="GET">
+                            <button class="btn" type="submit" id="ttl">
+                                <span class="fas fa-question-circle"></span>
+                                <span class="title">Ajuda</span>
+                            </button>
+                        </form>
+                        <div class="dropdown-divider"></div>
+                        <form action="/" method="GET">
+                            <button class="btn" type="submit" id="ttl">
+                                <span class="fas fa-sign-out-alt"></span>
+                                <span class="title">Sair</span>
+                            </button>
+                        </form>
+                    </div>
+               </div>
+            </div>
+        </div>
+ </nav>
+
+    <div class="card border-light mb-3" id="card">
+        <!-- <img class="card-img-top" src="..." alt="Card image cap"> -->
+        <div class="card-body">
+            <form>
+                <div class="form-group">
+                    <label>Buscar por catergorias</label>
+                </div>
+                <div class="form-group">
+                <label>Qual tipo </label>
+                <select class="form-control" id="exampleFormControlSelect1">
+                    <option>Apartamento</option>
+                    <option>Kitnet</option>
+                    <option>Casa</option>
+                    <option>Chácara</option>
+                    <option>Flat</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>Local</label>
+                <input type="text" class="form-control" id="senhacadastro" placeholder="Bairro/cidade/Estado">
+                </div>
+                <div class="form-row">
+                    <div class="form-group col-md-6">
+                        <label for="inputIptu">Preço</label>
+                        <div class="input-group mb-1">
+                            <input type="text" class="form-control" aria-label="Quantia" placeholder="Min">
+                            <div class="input-group-append">
+                            <span class="input-group-text">,00</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group col-md-6" id="btn1">
+                        <label for="inputIptu"></label>
+                        <div class="input-group mb-1">
+                            <input type="text" class="form-control" aria-label="Quantia" placeholder="Max">
+                            <div class="input-group-append">
+                            <span class="input-group-text">,00</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>   
+                <div class="form-row">
+                    <div class="form-group col-md-6">
+                        <label for="inputIptu">Área (m²)</label>
+                        <input type="text" class="form-control" id="" placeholder="Min">
+                    </div>
+                    <div class="form-group col-md-6" id="btn1">
+                        <label for="inputIptu"></label>
+                        <input type="text" class="form-control" id="" placeholder="Max">
+                    </div>
+                </div>   
+                <div class="form-row">
+                    <div class="form-group col-md-6">
+                        <label for="inputIptu">Quartos</label>
+                        <input type="text" class="form-control" id="" placeholder="Min">
+                    </div>
+                    <div class="form-group col-md-6" id="btn1">
+                        <label for="inputIptu"></label>
+                        <input type="text" class="form-control" id="" placeholder="Max">
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group col-md-6">
+                        <label for="inputIptu">Banheiros</label>
+                        <input type="text" class="form-control" id="" placeholder="Min">
+                    </div>
+                    <div class="form-group col-md-6" id="btn1">
+                        <label for="inputIptu"></label>
+                        <input type="text" class="form-control" id="" placeholder="Max">
+                    </div>
+                </div> 
+                <div class="form-group">
+                    <label>Vagas</label>
+                    <select class="form-control" id="exampleFormControlSelect1">
+                    <option>1</option>
+                    <option>2</option>
+                    <option>3</option>
+                    <option>4</option>
+                    </select>
+                </div>     
+                <button type="submit" class="btn btn-dark btn-block">Buscar</button>
+            </form>
+
+        </div>
+    </div>
+
+    <div class="card-deck border-0 " id="card2">
+        <div class="form-row">
+            <div class="form-group col-md-5">
+                <label>Ordenar por:  </label>
+            
+            </div>
+            <div class="form-group col-md-7">
+                <select class="form-control" id="ordenar">
+                    <option>Menor Preço</option>
+                    <option>Maior Preço</option>
+                    <option>Mais Recente</option>
+                    </select>
+            </div>
+        </div>   
+    </div>
+    
+    <div class="card border-0 mb-3" id="cardTitu">
+        <div class="form-title form-title" id="titulo"><h2 class="form-title__text"> Imóveis à venda</h2></div>
+    </div>
+
+    
+    <div class="card-group border-0" style="width: 60%;" id="caranun">
+        <div class="form-row">
+            <div class="form-group col-md-5">
+                <img class="card-img" src="fotos/casa01.jpg">
+            </div>
+            <div class="form-group col-md-5" id="Descri">
+                <h3 class="card-title">R$ 650.000</h3>
+                <p class="card-text">Rua Gupiará, Gilberto Mestrinho, Manaus, AM</p>
+                <div class="form-row">
+                    <div class="form-group col-md-4">
+                        <span class="fas fa-th"></span>
+                        <span class="card-text">200 m²</span>
+                    </div>
+                    <div class="form-group col-md-2">
+                        <span class="fas fa-bed"></span>
+                        <span class="card-text">3</span>
+                    </div>
+                    <div class="form-group col-md-2">
+                        <span class="fas fa-car"></span>
+                        <span class="card-text">2</span>
+                    </div>
+                    <div class="form-group col-md-4">
+                        <span class="fas fa-shower"></span>
+                        <span class="card-text">2</span>
+                    </div>
+                </div>   
+                <form action="" method="GET">
+                    <button id="btn2" type="submit">Ver Anúncio</button> 
+                </form>
+            </div>
+        </div> 
+        <div class="form-row">
+            <div class="form-group col-md-5">
+                <img class="card-img" src="fotos/casa02.jpg">
+            </div>
+            <div class="form-group col-md-5" id="Descri">
+                <h3 class="card-title">R$ 315.000</h3>
+                <p class="card-text">Rua São Gabriel da Cachoeira, Ponta Negra, Manaus, AM</p>
+                <div class="form-row">
+                    <div class="form-group col-md-4">
+                        <span class="fas fa-th"></span>
+                        <span class="card-text">102 m²</span>
+                    </div>
+                    <div class="form-group col-md-2">
+                        <span class="fas fa-bed"></span>
+                        <span class="card-text">2</span>
+                    </div>
+                    <div class="form-group col-md-2">
+                        <span class="fas fa-car"></span>
+                        <span class="card-text">1</span>
+                    </div>
+                    <div class="form-group col-md-4">
+                        <span class="fas fa-shower"></span>
+                        <span class="card-text">2</span>
+                    </div>
+                </div>   
+                <form action="" method="GET">
+                    <button id="btn2" type="submit">Ver Anúncio</button> 
+                </form>
+            </div>
+        </div>     
+    </div>
+    
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+</body>
+</html>
