@@ -78,7 +78,7 @@
                             </button>
                         </form>
                         <div class="dropdown-divider"></div>
-                        <form action="/" method="GET">
+                        <form action="/logout" method="GET">
                             <button class="btn" type="submit">
                                 <span class="fas fa-sign-out-alt"></span>
                                 <span class="title">Sair</span>
@@ -92,12 +92,12 @@
 
     <div class="container" id="cont2">
         <div>
-            <form action="/cadastro-anuncio" method="POST">
+            <form action="/cadastro-anuncio" method="POST" onsubmit="validarForm(this)">
                 <input type="hidden" value="<%= id_usuario %>" name="idUsuario">
                 <div class="input-div one">
                     <div>
                         <h3>Seu imóvel é?</h3>
-                        <select name = 'tipo_imovel'class="form-control" id="exampleFormControlSelect1">
+                        <select name='tipo_imovel' class="form-control" id="exampleFormControlSelect1">
                             <option value='Apartamento'>Apartamento</option>
                             <option value='Kitnet'>Kitnet</option>
                             <option value="Casa">Casa</option>
@@ -121,6 +121,7 @@
                         Alugo
                     </label>
                 </div>
+                
 
                 <h3>Onde fica seu imóvel?</h3>
                 <div class="form-row align-items-center">
@@ -281,6 +282,18 @@
             }
 
         });
+    </script>
+    <script>
+        function validarForm(form){
+            const check01 = document.getElementById("exampleRadios1")
+            const check02 = document.getElementById("exampleRadios2")
+            if(check01.checked){
+                form.tipo_anuncio.value = 'Vendo'
+            }else if(check02.checked){
+                form.tipo_anuncio.value = 'Alugo'
+            }
+            return true
+        }
     </script>
 
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"

@@ -15,11 +15,13 @@ app.get("/anunciar", function (req, res) {
 app.get("/home", function (req, res) {
     res.render("home");
 })
-app.get("/comprar", function (req, res) {
-    res.render("comprar");
+app.get("/comprar", async(req, res) =>{
+    const itens = await produtoController.listarTodosVenda()
+    res.render("comprar",{itens:itens});
 })
-app.get("/alugar", function (req, res) {
-    res.render("alugar");
+app.get("/alugar", async(req, res) =>{
+    const itens = await produtoController.listarTodosAluga()
+    res.render("alugar",{itens:itens});
 })
 app.get("/perfil", function (req, res) {
     res.render("perfil");
@@ -30,6 +32,10 @@ app.get("/", function (req, res) {
 app.get("/cadastro", function (req, res) {
     res.render("cadastro");
 })
+app.get('/logout', async(req,res)=>{
+    req.session.user = null;
+    res.redirect('/')
+})
 
 // posts
 
@@ -37,7 +43,7 @@ app.post("/cadastro-usuario", async (req, res) => {
     try {
         await clienteController.criar(req.body)
         console.log('sucesso no cadatro de cliente!')
-        res.redirect('/home');
+        res.redirect('/');
     } catch (error) {
         console.log(error)
         res.redirect('/cadastro')

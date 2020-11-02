@@ -17,6 +17,16 @@ class Anuncio {
     async atualizar(dados) {
       return await AnuncioModelo.update(dados, { where: { id: dados.id } })
     }
+    async listarTodosVenda(){
+      return await AnuncioModelo.findAll({where:{
+        tipo_anuncio:"Vendo"
+      }})
+    }
+    async listarTodosAluga(){
+      return await AnuncioModelo.findAll({where:{
+        tipo_anuncio:"Alugo"
+      }})
+    }
   }
   
 module.exports = new Anuncio()

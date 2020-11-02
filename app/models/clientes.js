@@ -21,4 +21,5 @@ const usuario = sequelize.define('clientes',{
     }
     
 });
+
 module.exports = usuario;
