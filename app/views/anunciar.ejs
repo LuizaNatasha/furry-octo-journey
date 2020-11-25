@@ -1,98 +1,32 @@
-<!DOCTYPE html>
-<html lang="en">
+<%- include('./partials/header.ejs') %>
+<style>
+    .image-preview {
+        width: 300px;
+        min-height: 100px;
+        border: 2px solid #ffff;
+        margin-top: 15px;
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Anunciar</title>
-    <link rel="stylesheet" type="text/css" href="./css/anunciar.css">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
-        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-    <style>
-        .image-preview {
-            width: 300px;
-            min-height: 100px;
-            border: 2px solid #ffff;
-            margin-top: 15px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-weight: bold;
+        color: #ffff;
+    }
 
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-weight: bold;
-            color: #ffff;
-        }
-
-        .image-preview__image {
-            display: none;
-            width: 100%;
-        }
-    </style>
-    <link href="https://fonts.googleapis.com/css?family=Poppins:600&display=swap" rel="stylesheet">
-    <script src="https://kit.fontawesome.com/a81368914c.js"></script>
-</head>
+    .image-preview__image {
+        display: none;
+        width: 100%;
+    }
+</style>
+<link rel="stylesheet" type="text/css" href="/css/anunciar.css">
 
 <body id="fundo">
-    <nav class="navbar navbar-expand-lg navbar-dark bg-light">
-        <div class="container">
-            <img src="fotos/5.png" class="img-fluid" alt="Imagem responsiva" width="80" height="60">
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul class="navbar-nav mr-auto">
-                    <form action="/home" method="GET">
-                        <button class="btn btn-light mr-2" type="submit">Home</button>
-                    </form>
-                    <form action="/comprar" method="GET">
-                        <button class="btn btn-light mr-2" type="submit">Comprar</button>
-                    </form>
-                    <form action="/alugar" method="GET">
-                        <button class="btn btn-light mr-2" type="submit">Alugar</button>
-                    </form>
-                    <form action="/anunciar" method="GET">
-                        <button class="btn btn-light mr-2" type="submit">Anunciar imovéis</button>
-                    </form>
-
-                    <li class="nav-item active">
-                        <a class="nav-link" href="#"> </a>
-                    </li>
-                </ul>
-                <div class="dropdown mr-4">
-                    <button class="btn dropdown" type="button" id="dropdownMenuButton" data-toggle="dropdown"
-                        aria-haspopup="true" aria-expanded="false">
-                        <span class="fas fa-user-circle" id="bonequinho"></span>
-                    </button>
-                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                        <form action="/perfil" method="GET">
-                            <button class="btn" type="submit">
-                                <span class="fas fa-user"></span>
-                                <span class="title">Meu Perfil</span>
-                            </button>
-                        </form>
-                        <form action="/perfil" method="GET">
-                            <button class="btn" type="submit">
-                                <span class="fas fa-question-circle"></span>
-                                <span class="title">Ajuda</span>
-                            </button>
-                        </form>
-                        <div class="dropdown-divider"></div>
-                        <form action="/logout" method="GET">
-                            <button class="btn" type="submit">
-                                <span class="fas fa-sign-out-alt"></span>
-                                <span class="title">Sair</span>
-                            </button>
-                        </form>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </nav>
+    <%- include('./partials/navbar.ejs') %>
 
     <div class="container" id="cont2">
-        <div>
-            <form action="/cadastro-anuncio" method="POST" onsubmit="validarForm(this)">
+        
+            <div>
+                <form action="/cadastro-anuncio" method="POST" onsubmit="validarForm(this)"  enctype="multipart/form-data">
                 <input type="hidden" value="<%= id_usuario %>" name="idUsuario">
                 <div class="input-div one">
                     <div>
@@ -121,7 +55,7 @@
                         Alugo
                     </label>
                 </div>
-                
+
 
                 <h3>Onde fica seu imóvel?</h3>
                 <div class="form-row align-items-center">
@@ -173,83 +107,83 @@
                 <div class="form-title form-title" id="textoo">
                     <h3 class="form-title__text">Adicionar Foto</h3>
                 </div>
-                <input type="file" name="inpFile" id="inpFile">
+                <input type="file" name='filename' id="inpFile">
                 <div class="image-preview" id="imagePreview">
                     <img src="" alt="Image Preview" class="image-preview__image">
                     <span class="image-preview__default-text">Imagem</span>
 
                 </div>
-        </div>
-        <div>
-            <div class="form-title form-title">
-                <!---->
-                <h3 class="form-title__text">Dados principais do imóvel
+            </div>
+            <div>
+                <div class="form-title form-title">
                     <!---->
-                </h3>
-            </div>
-            <div class="form-row">
-                <div class="form-group col-md-6">
-                    <label for="inputQuarto">Quartos</label>
-                    <input name='quartos' type="number" class="form-control" id="inputQuarto">
+                    <h3 class="form-title__text">Dados principais do imóvel
+                        <!---->
+                    </h3>
                 </div>
-                <div class="form-group col-md-6">
-                    <label for="inputBanheiro">Banheiros</label>
-                    <input name='banheiros' type="number" class="form-control" id="inputBanheiro">
-                </div>
-
-            </div>
-            <div class="form-row">
-                <div class="form-group col-md-6">
-                    <label for="inputArea">Área (m²)</label>
-                    <input name='arem2' type="number" class="form-control" id="inputArea">
+                <div class="form-row">
+                    <div class="form-group col-md-6">
+                        <label for="inputQuarto">Quartos</label>
+                        <input name='quartos' type="number" class="form-control" id="inputQuarto">
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label for="inputBanheiro">Banheiros</label>
+                        <input name='banheiros' type="number" class="form-control" id="inputBanheiro">
+                    </div>
 
                 </div>
-                <div class="form-group col-md-6">
-                    <label for="inputVaga">Vagas</label>
-                    <input name='vagas' type="number" class="form-control" id="inputVaga">
+                <div class="form-row">
+                    <div class="form-group col-md-6">
+                        <label for="inputArea">Área (m²)</label>
+                        <input name='arem2' type="number" class="form-control" id="inputArea">
+
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label for="inputVaga">Vagas</label>
+                        <input name='vagas' type="number" class="form-control" id="inputVaga">
+                    </div>
+
                 </div>
 
-            </div>
+                <label for="inputArea">Descrição</label>
+                <textarea name='descricao' class="form-control" aria-label="Com textarea"></textarea>
 
-            <label for="inputArea">Descrição</label>
-            <textarea name='descricao' class="form-control" aria-label="Com textarea"></textarea>
-
-            <div class="form-title form-title" id="textoo">
-                <!---->
-                <h3 class="form-title__text">Quanto custa seu imóvel?
+                <div class="form-title form-title" id="textoo">
                     <!---->
-                </h3>
-            </div>
-            <label for="inputPreco">Valor da venda/Aluguel</label>
-            <div class="input-group mb-3">
-                <input value='0' name='valor' type="text" class="form-control" aria-label="Quantia">
-                <div class="input-group-append">
-                    <span class="input-group-text">,00</span>
+                    <h3 class="form-title__text">Quanto custa seu imóvel?
+                        <!---->
+                    </h3>
                 </div>
-            </div>
-            <div class="form-row">
-                <div class="form-group col-md-9">
-                    <label for="inputIptu">IPTU (R$/ano)</label>
-                    <div class="input-group mb-3">
-                        <input value='0' name='iptu' type="text" class="form-control" aria-label="Quantia">
-                        <div class="input-group-append">
-                            <span class="input-group-text">,00</span>
+                <label for="inputPreco">Valor da venda/Aluguel</label>
+                <div class="input-group mb-3">
+                    <input value='0' name='valor' type="text" class="form-control" aria-label="Quantia">
+                    <div class="input-group-append">
+                        <span class="input-group-text">,00</span>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group col-md-9">
+                        <label for="inputIptu">IPTU (R$/ano)</label>
+                        <div class="input-group mb-3">
+                            <input value='0' name='iptu' type="text" class="form-control" aria-label="Quantia">
+                            <div class="input-group-append">
+                                <span class="input-group-text">,00</span>
+                            </div>
                         </div>
                     </div>
-                </div>
-                <div class="col-auto my-1" id="texto2">
-                    <div class="form-check">
-                        <input class="form-check-input" type="checkbox" id="autoSizingCheck2">
-                        <label class="form-check-label" for="autoSizingCheck2">
-                            Isento
-                        </label>
+                    <div class="col-auto my-1" id="texto2">
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" id="autoSizingCheck2">
+                            <label class="form-check-label" for="autoSizingCheck2">
+                                Isento
+                            </label>
+                        </div>
                     </div>
+
                 </div>
+                <button type="submit" class="btn btn-dark btn-block">Anunciar</button>
 
             </div>
-            <button type="submit" class="btn btn-dark btn-block">Anunciar</button>
-
-        </div>
         </form>
     </div>
     <script>
@@ -284,27 +218,16 @@
         });
     </script>
     <script>
-        function validarForm(form){
+        function validarForm(form) {
             const check01 = document.getElementById("exampleRadios1")
             const check02 = document.getElementById("exampleRadios2")
-            if(check01.checked){
+            if (check01.checked) {
                 form.tipo_anuncio.value = 'Vendo'
-            }else if(check02.checked){
+            } else if (check02.checked) {
                 form.tipo_anuncio.value = 'Alugo'
             }
             return true
         }
     </script>
-
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
-        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
-        crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
-        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
-        crossorigin="anonymous"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
-        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
-        crossorigin="anonymous"></script>
 </body>
-
-</html>
+<%- include('./partials/footer.ejs') %>

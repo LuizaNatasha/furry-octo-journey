@@ -63,5 +63,6 @@ body{
 .btn{
     box-shadow: none;  
     background-color:#fff;
+    color: #333;
     font-family: 'Poppins', sans-serif;
 }

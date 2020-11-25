@@ -1,72 +1,8 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CAV</title>
-    <link rel="stylesheet" type="text/css" href="./css/home.css">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-    <link href="https://fonts.googleapis.com/css?family=Poppins:600&display=swap" rel="stylesheet">
-    <script src="https://kit.fontawesome.com/a81368914c.js"></script>
-</head>
+<%- include('./partials/header.ejs') %>
+<link rel="stylesheet" type="text/css" href="./css/home.css">
 <body id="fundo">
 
-    <nav class="navbar navbar-expand-lg navbar-dark bg-light">
-
-        <div class="container">
-
-          <img src="fotos/5.png" class="img-fluid" alt="Imagem responsiva" width="80" height="60">
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-
-            <div class="collapse navbar-collapse" id="navbarSupportedContent" >
-              <ul class="navbar-nav mr-auto">
-                <form action="/home" method="GET">
-                    <button class="btn btn-light mr-2" type="submit">Home</button> 
-                </form>
-                <form action="/comprar" method="GET">
-                    <button class="btn btn-light mr-2" type="submit">Comprar</button> 
-                </form>
-                <form action="/alugar" method="GET">
-                    <button class="btn btn-light mr-2" type="submit">Alugar</button> 
-                </form>
-                <form action="/anunciar" method="GET">
-                    <button class="btn btn-light mr-2" type="submit">Anunciar imovéis</button> 
-                </form>
-                <li class="nav-item active">
-                    <a class="nav-link" href="#">       </a>
-                  </li>
-                </ul>
-                <div class="dropdown mr-4">
-                    <button class="btn dropdown" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        <span class="fas fa-user-circle" id="bonequinho"></span>
-                    </button>
-                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                        <form action="/perfil" method="GET">
-                            <button class="btn" type="submit" id="ttl">
-                                <span class="fas fa-user"></span>
-                                <span class="title">Meu Perfil</span>
-                            </button>
-                        </form>
-                        <form action="/perfil" method="GET">
-                            <button class="btn" type="submit" id="ttl">
-                                <span class="fas fa-question-circle"></span>
-                                <span class="title">Ajuda</span>
-                            </button>
-                        </form>
-                        <div class="dropdown-divider"></div>
-                        <form action="/logout" method="GET">
-                            <button class="btn" type="submit" id="ttl">
-                                <span class="fas fa-sign-out-alt"></span>
-                                <span class="title">Sair</span>
-                            </button>
-                        </form>
-                    </div>
-               </div>
-            </div>
-        </div>
- </nav>
+    <%- include('./partials/navbar.ejs') %>
     <div id="carouselSite" class="carousel slide" data-ride="carousel">
         <ol class="carousel-indicators">
             <li data-target="#carouselSite" data-slide-to="0" class="active"></li>
@@ -89,9 +25,5 @@
             <span class="sr-only">Avançar</span>
         </a>
     </div>
-    
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 </body>
-</html>
+<%- include('./partials/footer.ejs') %>

@@ -1,0 +1,46 @@
+<%- include('./partials/header.ejs') %>
+<link rel="stylesheet" type="text/css" href="./css/alugar.css">
+<%- include('./partials/navbar.ejs') %>
+<body id="fundo">
+
+    <div class="card border-0 mb-3" id="cardTitu">
+        <div class="form-title form-title" id="titulo"><h2 class="form-title__text"> Meus Anúncios</h2></div>
+    </div>
+    <div class="card-group border-0" style="width: 60%;" id="caranun">
+        <% itens.forEach(element => { %>
+            <div class="form-row">
+                <div class="form-group col-md-5">
+                    <img class="card-img" src="<%= element.fotoURL%>">
+                </div>
+                <div class="form-group col-md-5" id="Descri">
+                    <h3 class="card-title">R$ <%= element.valor%></h3>
+                    <p class="card-text"> <%= element.endereco %>,  <%= element.bairro%>, <%= element.cidade%>,  <%= element.estadoUF%></p>
+                    <div class="form-row">
+                        <div class="form-group col-md-4">
+                            <span class="fas fa-th"></span>
+                            <span class="card-text"> <%= element.arem2%> m²</span>
+                        </div>
+                        <div class="form-group col-md-2">
+                            <span class="fas fa-bed"></span>
+                            <span class="card-text"> <%= element.quartos%></span>
+                        </div>
+                        <div class="form-group col-md-2">
+                            <span class="fas fa-car"></span>
+                            <span class="card-text"> <%= element.vagas%></span>
+                        </div>
+                        <div class="form-group col-md-4">
+                            <span class="fas fa-shower"></span>
+                            <span class="card-text"> <%= element.banheiros%></span>
+                        </div>
+                    </div>   
+                    <form action="/meu-anuncio-ver/<%= element.id %>" method="GET">
+                        <button id="btn2" type="submit">Ver Anúncio</button> 
+                    </form>
+                </div>
+            </div> 
+        <% }); %> 
+    </div>
+
+
+</body>
+<%- include('./partials/footer.ejs') %>

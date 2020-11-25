@@ -18,6 +18,10 @@ const usuario = sequelize.define('clientes',{
     telefone:{
         type: Sequelize.STRING,
         defaultValue : "NÃO INSERIDO"
+    },
+    fotoURL:{
+        type: Sequelize.STRING,
+        defaultValue : 'https://e3z7c6v7.rocketcdn.me/blog/wp-content/uploads/2019/01/267577-paginas-de-erro-saiba-identificar-e-solucionar-o-problema.jpg'
     }
     
 });

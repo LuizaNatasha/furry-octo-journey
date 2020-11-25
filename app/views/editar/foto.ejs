@@ -1,0 +1,49 @@
+<%- include('../partials/header.ejs') %>
+<link rel="stylesheet" href="/css/editar.css">
+<style>
+    .image-preview {
+        width: 300px;
+        min-height: 100px;
+        border: 2px solid #ffff;
+        margin-top: 15px;
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-weight: bold;
+        color: #ffff;
+    }
+
+    .image-preview__image {
+        width: 100%;
+    }
+</style>
+<body id='fundo'>
+    <div class="container">
+        
+        <div class="box">
+            <form action="/editar-foto-perfil" method="POST" enctype="multipart/form-data">
+                <div class="image-preview" id="imagePreview">
+                    <img id = 'img_preview' src="<%= foto %>" alt="Image Preview" class="image-preview__image">                    
+                </div>
+                <input id ="file" type="file" class="input" name="filename">
+                <button type="submit" class="btn">Atualizar</button>
+            </form>
+            
+        </div>
+    </div>
+</body>
+<script>
+    
+function readImage() {
+    if (this.files && this.files[0]) {
+        var file = new FileReader();
+        file.onload = function(e) {
+            document.getElementById("img_preview").src = e.target.result;
+        };       
+        file.readAsDataURL(this.files[0]);
+    }
+}
+document.getElementById("file").addEventListener("change", readImage, false);
+</script>
+<%- include('../partials/footer.ejs') %>

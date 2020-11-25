@@ -1,0 +1,240 @@
+<%- include('./partials/header.ejs') %>
+
+<style>
+    .image-preview {
+        width: 300px;
+        min-height: 100px;
+        border: 2px solid #ffff;
+        margin-top: 15px;
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-weight: bold;
+        color: #ffff;
+    }
+
+    .image-preview__image {
+        width: 100%;
+    }
+</style>
+<link rel="stylesheet" type="text/css" href="/css/anunciar.css">
+
+<body id="fundo">
+    <%- include('./partials/navbar.ejs') %>
+    <div class="container" id="cont2">
+        <div>
+            <div class="image-preview" id="imagePreview">
+                <img src="<%= item.fotoURL %>" alt="Image Preview" class="image-preview__image">
+                <span class="image-preview__default-text"><a href="/editar-foto-anuncio/<%= item.id %>"><i
+                    class="fas fa-edit"></i></a></span>
+                
+                
+            </div>
+            <div class="input-div one">
+                <div>
+                    <h3>Seu imóvel é: </h3>
+                    <div class="input-group">
+                        <input type="text" value="<%= item.tipo_imovel %>" class="form-control" disabled>
+                        <div class="input-group-append">
+                            <span class="input-group-text" id="basic-addon2"><a href="/editar-tipo-imovel-anuncio/<%= item.id%>"><i
+                                        class="fas fa-edit"></i></a></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="input-div one">
+                <div>
+                    <h3>Tipo de Anuncio: </h3>
+                    <div class="input-group">
+                        <input type="text" value="<%= item.tipo_anuncio %>" class="form-control" disabled>
+                        <div class="input-group-append">
+                            <span class="input-group-text" id="basic-addon2"><a href="/editar-tipo-anuncio-anuncio/<%= item.id%>"><i
+                                        class="fas fa-edit"></i></a></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <h3>Onde fica o imovel:</h3>
+            <div class="form-row align-items-center">
+                <div class="form-group col-md-6">
+                    <label for="inputCEP">CEP</label>
+                    <div class="input-group">
+                        <input type="text" class="form-control" disabled>
+                        <div class="input-group-append">
+                            <span class="input-group-text" id="basic-addon2"><a href="/editar-cep-anuncio/<%= item.id%>"><i
+                                        class="fas fa-edit"></i></a></span>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group col-md-6">
+                    <a href="http://www.buscacep.correios.com.br/sistemas/buscacep/" id="coco">* Não sei meu CEP
+                    </a>
+                </div>
+            </div>
+
+            <div class="form-row">
+                <div class="form-group col-md-9">
+                    <label for="inputCity">Cidade</label>
+                    <div class="input-group">
+                        <input type="text" class="form-control" value="<%= item.cidade %>" disabled>
+                        <div class="input-group-append">
+                            <span class="input-group-text" id="basic-addon2"><a href="/editar-cidade-anuncio/<%= item.id%>"><i
+                                        class="fas fa-edit"></i></a></span>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group col-md-3">
+                    <label for="inputEstado">Estado</label>
+                    <div class="input-group">
+                        <input type="text" value="<%= item.estadoUF %>" class="form-control" disabled>
+                        <div class="input-group-append">
+                            <span class="input-group-text" id="basic-addon2"><a href="/editar-estado-anuncio/<%= item.id%>"><i
+                                        class="fas fa-edit"></i></a></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    <label for="inputAddress">Bairro</label>
+                    <div class="input-group">
+                        <input type="text" value="<%= item.bairro %>" class="form-control" disabled>
+                        <div class="input-group-append">
+                            <span class="input-group-text" id="basic-addon2"><a href="/editar-bairro-anuncio/<%= item.id%>"><i
+                                        class="fas fa-edit"></i></a></span>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group col-md-6">
+                    <label for="inputAddress">Endereço</label>
+                    <div class="input-group">
+                        <input type="text" value="<%= item.endereco %>" class="form-control" disabled>
+                        <div class="input-group-append">
+                            <span class="input-group-text" id="basic-addon2"><a href="/"><i
+                                        class="fas fa-edit"></i></a></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group col-md-3">
+                    <label for="inputAddress2">Numero</label>
+                    <div class="input-group">
+                        <input type="text" value="<%= item.numero %>" class="form-control" disabled>
+                        <div class="input-group-append">
+                            <span class="input-group-text" id="basic-addon2"><a href="/editar-numero-anuncio/<%= item.id%>"><i
+                                        class="fas fa-edit"></i></a></span>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group col-md-9">
+                    <label for="inputAddress">Complemento</label>
+                    <div class="input-group">
+                        <input type="text" value="<%= item.complemento %>" class="form-control" disabled>
+                        <div class="input-group-append">
+                            <span class="input-group-text" id="basic-addon2"><a href="/"><i
+                                        class="fas fa-edit"></i></a></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+        <div>
+            <div class="form-title form-title">
+                <!---->
+                <h3 class="form-title__text">Dados principais do imóvel
+                    <!---->
+                </h3>
+            </div>
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    <label for="inputQuarto">Quartos</label>
+                    <div class="input-group">
+                        <input type="text" value="<%= item.quartos %>" class="form-control" disabled>
+                        <div class="input-group-append">
+                            <span class="input-group-text" id="basic-addon2"><a href="/editar-quartos-anuncio/<%= item.id%>"><i
+                                        class="fas fa-edit"></i></a></span>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group col-md-6">
+                    <label for="inputBanheiro">Banheiros</label>
+                    <div class="input-group">
+                        <input type="text" value="<%= item.banheiros %>" class="form-control" disabled>
+                        <div class="input-group-append">
+                            <span class="input-group-text" id="basic-addon2"><a href="/editar-banheiros-anuncio/<%= item.id%>"><i
+                                        class="fas fa-edit"></i></a></span>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    <label for="inputArea">Área (m²)</label>
+                    <div class="input-group">
+                        <input type="text" value="<%= item.arem2 %>" class="form-control" disabled>
+                        <div class="input-group-append">
+                            <span class="input-group-text" id="basic-addon2"><a href="/editar-arem2-anuncio/<%= item.id%>"><i
+                                        class="fas fa-edit"></i></a></span>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="form-group col-md-6">
+                    <label for="inputVaga">Vagas</label>
+                    <div class="input-group">
+                        <input type="text" value="<%= item.vagas %>" class="form-control" disabled>
+                        <div class="input-group-append">
+                            <span class="input-group-text" id="basic-addon2"><a href="/editar-vagas-anuncio/<%= item.id%>"><i
+                                        class="fas fa-edit"></i></a></span>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <label for="inputArea">Descrição</label>
+            
+            <div class="input-group">
+                <textarea class="form-control" aria-label="Com textarea" disabled><%= item.descricao %></textarea>
+                <div class="input-group-append">
+                    <span class="input-group-text" id="basic-addon2"><a href="/editar-descricao-anuncio/<%= item.id%>"><i
+                                class="fas fa-edit"></i></a></span>
+                </div>
+            </div>
+
+            <div class="form-title form-title" id="textoo">
+                <!---->
+                <h3 class="form-title__text">Quanto custa seu imóvel?
+                    <!---->
+                </h3>
+            </div>
+            <label for="inputPreco">Valor da venda/Aluguel</label>
+            <div class="input-group">
+                <input type="text" value="<%= item.vagas %>" class="form-control" disabled>
+                <div class="input-group-append">
+                    <span class="input-group-text" id="basic-addon2"><a href="/editar-valor-anuncio/<%= item.id%>"><i
+                                class="fas fa-edit"></i></a></span>
+                </div>
+            </div>
+            <br>
+            <form action="/excluir-anuncio" method="POST">
+                <input type="hidden" name='id' value="<%= item.id %>">
+                <button type="submit" class="btn btn-danger btn-block">Excluir Anúncio</button>
+            </form>
+            
+        </div>
+    </div>
+    <script>
+        function submitForm(){
+            var form = document.getElementById('form_img')
+            form.submit()
+        }
+    </script>
+</body>
+
+
+<%- include('./partials/footer.ejs') %>

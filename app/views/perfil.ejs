@@ -1,0 +1,73 @@
+<%- include('./partials/header.ejs') %>
+<link rel="stylesheet" type="text/css" href="./css/perfil.css">
+<%- include('./partials/navbar.ejs') %>
+<body id="fundo">
+    <div class="container-perfil">
+        <div class="img">
+            <img class = 'img-perfil'src="<%= user.fotoURL %>">
+        </div>
+        <div class="login-content">
+            <div class = 'form-login'>
+                <div class="itens-perfil">
+                    <div class="img-opcoes">
+                        <form action="/editar-foto-perfil" method="GET">
+                            <input type="submit" class="btn" width="50px" value="EDITAR FOTO DE PERFIL">
+                        </form>
+                    </div>
+                    <div class="input-div Three">
+                        <div class="i">
+                            <i class="fas fa-user"></i>
+                        </div>
+                        <div>
+                            <input type="text" value = '<%= user.nome %>' class="input" disabled>
+                        </div>
+                    </div>
+                    <div>
+                        <form action="/editar-nome" method="GET">
+                            <input type="submit" class="btn" width="50px" value="EDITAR NOME">
+                        </form>
+                    </div>
+                </div>
+                
+                <div class="itens-perfil">
+                    <div class="input-div one">
+                        <div class="i">
+                            <i class="fas fa-envelope-open"></i>
+                        </div>
+                        <div>
+                            <input type="email"  value = '<%= user.email %>' class="input" disabled>
+                        </div>
+                    </div>
+                    <div>
+                        <form action="/editar-senha" method="GET">
+                            <input type="submit" class="btn" width="50px" value="EDITAR SENHA">
+                        </form>
+                    </div>
+                </div>
+                
+                <div class="itens-perfil">
+                    <div class="input-div four">
+                        <div class="i">
+                            <i class="fas fa-phone-alt"></i>
+                        </div>
+                        <div>
+                            <input type="text"  value = '<%= user.telefone %>' class="input" disabled>
+                        </div>
+                    </div>
+                    <div>
+                        <form action="/editar-telefone" method="GET">
+                            <input type="submit" class="btn" width="50px" value="EDITAR TELEFONE">
+                        </form>
+                        
+                    </div>
+                </div>
+                
+            </div>
+
+        </div>
+    </div>
+
+    <script type="text/javascript" src="./inicio.js"></script>
+
+</body>
+<%- include('./partials/footer.ejs') %>

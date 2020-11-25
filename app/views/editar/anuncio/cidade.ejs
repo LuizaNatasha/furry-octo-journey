@@ -1,0 +1,17 @@
+<%- include('../../partials/header.ejs') %>
+<link rel="stylesheet" href="/css/editar.css">
+
+<body id='fundo'>
+    <div class="container">
+        
+        <div class="box">
+            <form action="/editar-cidade-anuncio" method="POST">
+                <input type="hidden" name='id' value="<%= id %>">
+                <input type="text" class="input" name="item" value="<%=item%>" >
+                <button type="submit" class="btn">Atualizar</button>
+            </form>
+            
+        </div>
+    </div>
+</body>
+<%- include('../../partials/footer.ejs') %>
